@@ -1,0 +1,509 @@
+<html lang="ru"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/logo.webp" type="image/x-icon">
+    <meta property="og:title" content="Yamori_Ko">
+    <meta property="og:description" content="Прекрасный хостинг игровых серверов">
+    <meta property="og:image" content="https://my.host/logo.webp">
+    <meta property="og:url" content="https://my.host">
+    <meta property="og:type" content="website">
+    <title>MY.HOST</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #a855f7, #ec4899, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            padding: 2rem;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+        
+        .icon-container {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(168, 85, 247, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+        
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+        
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+        
+        .delay-400 {
+            animation-delay: 400ms;
+        }
+        
+        .delay-500 {
+            animation-delay: 500ms;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        .scroll-btn {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .scroll-btn.up {
+            bottom: 90px;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mr-5{margin-right:1.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-20{margin-top:5rem}.flex{display:flex}.grid{display:grid}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-start{align-items:flex-start}.justify-center{justify-content:center}.gap-10{gap:2.5rem}.gap-8{gap:2rem}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.rounded-full{border-radius:9999px}.p-10{padding:2.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-6xl{font-size:3.75rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-purple-300{--tw-text-opacity:1;color:rgb(216 180 254 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-100{transition-delay:100ms}.delay-200{transition-delay:200ms}.delay-300{transition-delay:300ms}.delay-500{transition-delay:500ms}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-8xl{font-size:6rem;line-height:1}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mr-5{margin-right:1.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-20{margin-top:5rem}.flex{display:flex}.grid{display:grid}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-start{align-items:flex-start}.justify-center{justify-content:center}.gap-10{gap:2.5rem}.gap-8{gap:2rem}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.rounded-full{border-radius:9999px}.p-10{padding:2.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-6xl{font-size:3.75rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-purple-300{--tw-text-opacity:1;color:rgb(216 180 254 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-100{transition-delay:100ms}.delay-200{transition-delay:200ms}.delay-300{transition-delay:300ms}.delay-500{transition-delay:500ms}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-8xl{font-size:6rem;line-height:1}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mr-5{margin-right:1.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-20{margin-top:5rem}.flex{display:flex}.grid{display:grid}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-start{align-items:flex-start}.justify-center{justify-content:center}.gap-10{gap:2.5rem}.gap-8{gap:2rem}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.rounded-full{border-radius:9999px}.p-10{padding:2.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-6xl{font-size:3.75rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-purple-300{--tw-text-opacity:1;color:rgb(216 180 254 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-100{transition-delay:100ms}.delay-200{transition-delay:200ms}.delay-300{transition-delay:300ms}.delay-500{transition-delay:500ms}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-8xl{font-size:6rem;line-height:1}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mr-5{margin-right:1.25rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-20{margin-top:5rem}.flex{display:flex}.grid{display:grid}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-start{align-items:flex-start}.justify-center{justify-content:center}.gap-10{gap:2.5rem}.gap-8{gap:2rem}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.rounded-full{border-radius:9999px}.p-10{padding:2.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-6xl{font-size:3.75rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-purple-300{--tw-text-opacity:1;color:rgb(216 180 254 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-100{transition-delay:100ms}.delay-200{transition-delay:200ms}.delay-300{transition-delay:300ms}.delay-500{transition-delay:500ms}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-8xl{font-size:6rem;line-height:1}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style></head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <div class="particles" id="particles-container"><div class="particle" style="width: 4.96944px; height: 4.96944px; left: 31.1994vw; animation-delay: 3.38582s; animation-duration: 24.7303s; opacity: 0.583181;"></div><div class="particle" style="width: 2.11714px; height: 2.11714px; left: 26.1114vw; animation-delay: 12.4544s; animation-duration: 28.9859s; opacity: 0.392903;"></div><div class="particle" style="width: 1.3143px; height: 1.3143px; left: 73.3215vw; animation-delay: 12.1942s; animation-duration: 18.3118s; opacity: 0.269794;"></div><div class="particle" style="width: 1.42847px; height: 1.42847px; left: 64.7439vw; animation-delay: 10.0934s; animation-duration: 20.8192s; opacity: 0.384546;"></div><div class="particle" style="width: 3.33671px; height: 3.33671px; left: 5.32977vw; animation-delay: 1.36999s; animation-duration: 15.6748s; opacity: 0.378361;"></div><div class="particle" style="width: 1.17413px; height: 1.17413px; left: 6.10867vw; animation-delay: 4.2708s; animation-duration: 27.0067s; opacity: 0.455376;"></div><div class="particle" style="width: 2.45237px; height: 2.45237px; left: 7.73732vw; animation-delay: 3.32219s; animation-duration: 29.0978s; opacity: 0.47666;"></div><div class="particle" style="width: 1.90852px; height: 1.90852px; left: 75.8432vw; animation-delay: 10.0079s; animation-duration: 29.2723s; opacity: 0.4341;"></div><div class="particle" style="width: 4.14055px; height: 4.14055px; left: 53.2401vw; animation-delay: 0.7933s; animation-duration: 19.3982s; opacity: 0.360122;"></div><div class="particle" style="width: 4.07381px; height: 4.07381px; left: 49.6324vw; animation-delay: 12.4158s; animation-duration: 12.3794s; opacity: 0.27766;"></div><div class="particle" style="width: 2.0526px; height: 2.0526px; left: 7.48691vw; animation-delay: 9.07194s; animation-duration: 10.9719s; opacity: 0.338992;"></div><div class="particle" style="width: 3.60372px; height: 3.60372px; left: 4.94397vw; animation-delay: 6.64979s; animation-duration: 14.8395s; opacity: 0.568543;"></div><div class="particle" style="width: 4.14292px; height: 4.14292px; left: 95.6607vw; animation-delay: 8.14143s; animation-duration: 19.9571s; opacity: 0.522083;"></div><div class="particle" style="width: 4.7403px; height: 4.7403px; left: 52.1018vw; animation-delay: 12.2287s; animation-duration: 26.9717s; opacity: 0.389519;"></div><div class="particle" style="width: 4.30438px; height: 4.30438px; left: 97.3997vw; animation-delay: 8.79056s; animation-duration: 10.7066s; opacity: 0.622135;"></div><div class="particle" style="width: 4.71214px; height: 4.71214px; left: 23.9447vw; animation-delay: 3.56847s; animation-duration: 25.1756s; opacity: 0.457194;"></div><div class="particle" style="width: 2.70898px; height: 2.70898px; left: 88.3329vw; animation-delay: 14.4596s; animation-duration: 25.3024s; opacity: 0.694643;"></div><div class="particle" style="width: 2.9538px; height: 2.9538px; left: 31.7645vw; animation-delay: 8.44714s; animation-duration: 16.0809s; opacity: 0.430759;"></div><div class="particle" style="width: 2.67064px; height: 2.67064px; left: 87.5517vw; animation-delay: 8.50408s; animation-duration: 22.2537s; opacity: 0.573183;"></div><div class="particle" style="width: 2.09002px; height: 2.09002px; left: 41.4864vw; animation-delay: 10.4826s; animation-duration: 16.805s; opacity: 0.630924;"></div><div class="particle" style="width: 2.45113px; height: 2.45113px; left: 18.8598vw; animation-delay: 14.8563s; animation-duration: 16.3471s; opacity: 0.391677;"></div><div class="particle" style="width: 1.94703px; height: 1.94703px; left: 44.821vw; animation-delay: 12.6066s; animation-duration: 29.0808s; opacity: 0.210698;"></div><div class="particle" style="width: 4.58074px; height: 4.58074px; left: 34.562vw; animation-delay: 5.38507s; animation-duration: 28.9055s; opacity: 0.296267;"></div><div class="particle" style="width: 4.05276px; height: 4.05276px; left: 34.2011vw; animation-delay: 6.40998s; animation-duration: 24.8374s; opacity: 0.269406;"></div><div class="particle" style="width: 2.64054px; height: 2.64054px; left: 25.2451vw; animation-delay: 3.58119s; animation-duration: 22.8018s; opacity: 0.4149;"></div><div class="particle" style="width: 1.34028px; height: 1.34028px; left: 96.7429vw; animation-delay: 14.5818s; animation-duration: 26.5024s; opacity: 0.548277;"></div><div class="particle" style="width: 3.62182px; height: 3.62182px; left: 12.8529vw; animation-delay: 14.4908s; animation-duration: 12.5366s; opacity: 0.284656;"></div><div class="particle" style="width: 1.25222px; height: 1.25222px; left: 92.9652vw; animation-delay: 4.11714s; animation-duration: 11.073s; opacity: 0.277804;"></div><div class="particle" style="width: 3.37906px; height: 3.37906px; left: 34.0432vw; animation-delay: 2.49541s; animation-duration: 23.553s; opacity: 0.257941;"></div><div class="particle" style="width: 3.24811px; height: 3.24811px; left: 0.637431vw; animation-delay: 7.67589s; animation-duration: 13.3869s; opacity: 0.339116;"></div><div class="particle" style="width: 4.16062px; height: 4.16062px; left: 75.2202vw; animation-delay: 1.78732s; animation-duration: 15.4573s; opacity: 0.350091;"></div><div class="particle" style="width: 2.81989px; height: 2.81989px; left: 76.1028vw; animation-delay: 12.7367s; animation-duration: 17.6493s; opacity: 0.205636;"></div><div class="particle" style="width: 1.24256px; height: 1.24256px; left: 53.376vw; animation-delay: 14.5736s; animation-duration: 13.9608s; opacity: 0.237648;"></div><div class="particle" style="width: 2.45647px; height: 2.45647px; left: 27.0985vw; animation-delay: 10.5656s; animation-duration: 26.1629s; opacity: 0.468248;"></div><div class="particle" style="width: 2.19769px; height: 2.19769px; left: 78.9843vw; animation-delay: 7.16057s; animation-duration: 10.405s; opacity: 0.447425;"></div><div class="particle" style="width: 3.69112px; height: 3.69112px; left: 82.6394vw; animation-delay: 5.27164s; animation-duration: 13.4273s; opacity: 0.364633;"></div><div class="particle" style="width: 1.98819px; height: 1.98819px; left: 83.9489vw; animation-delay: 9.26828s; animation-duration: 16.8021s; opacity: 0.33229;"></div><div class="particle" style="width: 3.73129px; height: 3.73129px; left: 50.274vw; animation-delay: 9.46267s; animation-duration: 22.8132s; opacity: 0.20441;"></div><div class="particle" style="width: 2.93052px; height: 2.93052px; left: 33.1661vw; animation-delay: 5.13218s; animation-duration: 25.3616s; opacity: 0.430221;"></div><div class="particle" style="width: 3.11541px; height: 3.11541px; left: 14.863vw; animation-delay: 5.77272s; animation-duration: 22.4479s; opacity: 0.297409;"></div><div class="particle" style="width: 1.51714px; height: 1.51714px; left: 26.5289vw; animation-delay: 14.5352s; animation-duration: 25.9282s; opacity: 0.564121;"></div><div class="particle" style="width: 1.82565px; height: 1.82565px; left: 16.3116vw; animation-delay: 4.5958s; animation-duration: 19.0615s; opacity: 0.285371;"></div><div class="particle" style="width: 1.5569px; height: 1.5569px; left: 56.2063vw; animation-delay: 0.910189s; animation-duration: 11.7912s; opacity: 0.396083;"></div><div class="particle" style="width: 1.18473px; height: 1.18473px; left: 46.3829vw; animation-delay: 14.4411s; animation-duration: 28.1517s; opacity: 0.365675;"></div><div class="particle" style="width: 2.03121px; height: 2.03121px; left: 35.7923vw; animation-delay: 0.562232s; animation-duration: 19.0106s; opacity: 0.552544;"></div><div class="particle" style="width: 4.99661px; height: 4.99661px; left: 40.9801vw; animation-delay: 13.9517s; animation-duration: 29.0889s; opacity: 0.608543;"></div><div class="particle" style="width: 1.46724px; height: 1.46724px; left: 53.971vw; animation-delay: 10.9132s; animation-duration: 13.7027s; opacity: 0.495763;"></div><div class="particle" style="width: 1.82233px; height: 1.82233px; left: 9.80746vw; animation-delay: 6.60895s; animation-duration: 11.0664s; opacity: 0.343357;"></div><div class="particle" style="width: 1.3744px; height: 1.3744px; left: 66.1261vw; animation-delay: 13.3394s; animation-duration: 29.8919s; opacity: 0.205986;"></div><div class="particle" style="width: 1.19934px; height: 1.19934px; left: 45.1147vw; animation-delay: 11.8999s; animation-duration: 28.8466s; opacity: 0.544898;"></div><div class="particle" style="width: 1.14332px; height: 1.14332px; left: 62.6776vw; animation-delay: 0.498758s; animation-duration: 22.2594s; opacity: 0.400012;"></div><div class="particle" style="width: 2.60959px; height: 2.60959px; left: 86.6888vw; animation-delay: 10.0477s; animation-duration: 28.3811s; opacity: 0.659318;"></div><div class="particle" style="width: 4.79503px; height: 4.79503px; left: 83.1571vw; animation-delay: 4.30718s; animation-duration: 10.8988s; opacity: 0.231502;"></div><div class="particle" style="width: 3.08249px; height: 3.08249px; left: 68.1042vw; animation-delay: 2.12951s; animation-duration: 26.7614s; opacity: 0.239668;"></div><div class="particle" style="width: 4.74596px; height: 4.74596px; left: 87.9355vw; animation-delay: 11.1126s; animation-duration: 12.8911s; opacity: 0.418715;"></div><div class="particle" style="width: 4.42551px; height: 4.42551px; left: 50.9671vw; animation-delay: 2.11704s; animation-duration: 25.5663s; opacity: 0.614597;"></div><div class="particle" style="width: 3.42039px; height: 3.42039px; left: 42.015vw; animation-delay: 8.81982s; animation-duration: 14.2238s; opacity: 0.243016;"></div><div class="particle" style="width: 2.34155px; height: 2.34155px; left: 26.3954vw; animation-delay: 8.24351s; animation-duration: 14.5848s; opacity: 0.561779;"></div><div class="particle" style="width: 3.97063px; height: 3.97063px; left: 61.6514vw; animation-delay: 12.6547s; animation-duration: 18.3414s; opacity: 0.645182;"></div><div class="particle" style="width: 4.33311px; height: 4.33311px; left: 51.3252vw; animation-delay: 4.64529s; animation-duration: 12.8989s; opacity: 0.486649;"></div><div class="particle" style="width: 3.19815px; height: 3.19815px; left: 41.1613vw; animation-delay: 4.72137s; animation-duration: 11.8442s; opacity: 0.600425;"></div><div class="particle" style="width: 3.99407px; height: 3.99407px; left: 44.8269vw; animation-delay: 5.40733s; animation-duration: 25.9436s; opacity: 0.232642;"></div><div class="particle" style="width: 4.92999px; height: 4.92999px; left: 66.2038vw; animation-delay: 0.325206s; animation-duration: 24.9912s; opacity: 0.603182;"></div><div class="particle" style="width: 3.46977px; height: 3.46977px; left: 8.76708vw; animation-delay: 4.73887s; animation-duration: 16.1386s; opacity: 0.431812;"></div><div class="particle" style="width: 1.22693px; height: 1.22693px; left: 37.0616vw; animation-delay: 12.2421s; animation-duration: 25.027s; opacity: 0.597742;"></div><div class="particle" style="width: 2.3236px; height: 2.3236px; left: 83.9333vw; animation-delay: 14.4879s; animation-duration: 18.4849s; opacity: 0.595582;"></div><div class="particle" style="width: 4.98554px; height: 4.98554px; left: 13.8972vw; animation-delay: 8.95331s; animation-duration: 17.2212s; opacity: 0.390108;"></div><div class="particle" style="width: 1.48897px; height: 1.48897px; left: 16.3387vw; animation-delay: 8.72906s; animation-duration: 28.3783s; opacity: 0.338355;"></div><div class="particle" style="width: 3.12428px; height: 3.12428px; left: 2.73643vw; animation-delay: 1.36184s; animation-duration: 14.7106s; opacity: 0.556858;"></div><div class="particle" style="width: 3.70773px; height: 3.70773px; left: 76.4163vw; animation-delay: 7.52497s; animation-duration: 19.2025s; opacity: 0.289931;"></div><div class="particle" style="width: 2.91262px; height: 2.91262px; left: 26.5082vw; animation-delay: 4.91189s; animation-duration: 12.6531s; opacity: 0.34319;"></div><div class="particle" style="width: 1.94032px; height: 1.94032px; left: 15.1715vw; animation-delay: 11.6557s; animation-duration: 12.3858s; opacity: 0.363665;"></div><div class="particle" style="width: 4.37953px; height: 4.37953px; left: 64.8558vw; animation-delay: 14.678s; animation-duration: 22.6363s; opacity: 0.56952;"></div><div class="particle" style="width: 1.82387px; height: 1.82387px; left: 97.8004vw; animation-delay: 3.7139s; animation-duration: 25.7442s; opacity: 0.551414;"></div><div class="particle" style="width: 4.21591px; height: 4.21591px; left: 79.3468vw; animation-delay: 12.664s; animation-duration: 16.8602s; opacity: 0.617012;"></div><div class="particle" style="width: 4.06495px; height: 4.06495px; left: 11.3671vw; animation-delay: 2.66909s; animation-duration: 17.9386s; opacity: 0.671651;"></div><div class="particle" style="width: 2.81361px; height: 2.81361px; left: 4.1975vw; animation-delay: 10.4424s; animation-duration: 26.2452s; opacity: 0.307388;"></div><div class="particle" style="width: 4.67474px; height: 4.67474px; left: 82.6541vw; animation-delay: 10.1022s; animation-duration: 18.1278s; opacity: 0.462398;"></div><div class="particle" style="width: 3.52604px; height: 3.52604px; left: 40.5154vw; animation-delay: 11.959s; animation-duration: 26.7278s; opacity: 0.288429;"></div><div class="particle" style="width: 1.388px; height: 1.388px; left: 65.8401vw; animation-delay: 2.7589s; animation-duration: 27.7854s; opacity: 0.648073;"></div><div class="particle" style="width: 3.91384px; height: 3.91384px; left: 1.3236vw; animation-delay: 6.5504s; animation-duration: 10.2457s; opacity: 0.50735;"></div><div class="particle" style="width: 3.05825px; height: 3.05825px; left: 68.7882vw; animation-delay: 8.68191s; animation-duration: 21.721s; opacity: 0.51699;"></div><div class="particle" style="width: 1.68013px; height: 1.68013px; left: 63.3586vw; animation-delay: 6.16731s; animation-duration: 13.8854s; opacity: 0.391797;"></div><div class="particle" style="width: 3.48141px; height: 3.48141px; left: 94.6268vw; animation-delay: 14.3689s; animation-duration: 22.0764s; opacity: 0.435419;"></div><div class="particle" style="width: 3.51101px; height: 3.51101px; left: 48.7887vw; animation-delay: 4.09417s; animation-duration: 17.1946s; opacity: 0.595509;"></div><div class="particle" style="width: 2.36823px; height: 2.36823px; left: 11.2858vw; animation-delay: 7.40595s; animation-duration: 24.1685s; opacity: 0.306538;"></div><div class="particle" style="width: 4.96029px; height: 4.96029px; left: 61.5796vw; animation-delay: 0.0211812s; animation-duration: 18.5541s; opacity: 0.527456;"></div><div class="particle" style="width: 1.59742px; height: 1.59742px; left: 34.3902vw; animation-delay: 7.29118s; animation-duration: 18.785s; opacity: 0.55854;"></div><div class="particle" style="width: 4.84016px; height: 4.84016px; left: 93.5102vw; animation-delay: 12.8409s; animation-duration: 19.8439s; opacity: 0.230618;"></div><div class="particle" style="width: 3.99085px; height: 3.99085px; left: 21.4407vw; animation-delay: 6.17565s; animation-duration: 11.4053s; opacity: 0.371426;"></div><div class="particle" style="width: 3.77309px; height: 3.77309px; left: 32.3928vw; animation-delay: 9.47786s; animation-duration: 14.3908s; opacity: 0.643515;"></div><div class="particle" style="width: 1.01554px; height: 1.01554px; left: 20.3982vw; animation-delay: 4.6585s; animation-duration: 24.9515s; opacity: 0.4065;"></div><div class="particle" style="width: 3.90458px; height: 3.90458px; left: 46.4889vw; animation-delay: 14.8976s; animation-duration: 20.756s; opacity: 0.672721;"></div><div class="particle" style="width: 3.81954px; height: 3.81954px; left: 29.9127vw; animation-delay: 9.13444s; animation-duration: 24.332s; opacity: 0.526413;"></div><div class="particle" style="width: 3.6584px; height: 3.6584px; left: 48.0073vw; animation-delay: 10.2013s; animation-duration: 24.7466s; opacity: 0.531687;"></div><div class="particle" style="width: 1.30566px; height: 1.30566px; left: 92.002vw; animation-delay: 6.30916s; animation-duration: 20.5686s; opacity: 0.276665;"></div><div class="particle" style="width: 4.76798px; height: 4.76798px; left: 38.5679vw; animation-delay: 1.91825s; animation-duration: 10.9326s; opacity: 0.212789;"></div><div class="particle" style="width: 4.48162px; height: 4.48162px; left: 60.9656vw; animation-delay: 14.1807s; animation-duration: 17.1588s; opacity: 0.333226;"></div><div class="particle" style="width: 3.80816px; height: 3.80816px; left: 11.7043vw; animation-delay: 7.23931s; animation-duration: 15.5278s; opacity: 0.598381;"></div><div class="particle" style="width: 4.05348px; height: 4.05348px; left: 14.9913vw; animation-delay: 1.37379s; animation-duration: 25.2488s; opacity: 0.461539;"></div><div class="particle" style="width: 2.44462px; height: 2.44462px; left: 96.4628vw; animation-delay: 13.5076s; animation-duration: 14.9357s; opacity: 0.518309;"></div><div class="particle" style="width: 2.49021px; height: 2.49021px; left: 84.8381vw; animation-delay: 11.6603s; animation-duration: 15.7557s; opacity: 0.290221;"></div><div class="particle" style="width: 3.94665px; height: 3.94665px; left: 8.46586vw; animation-delay: 14.1588s; animation-duration: 20.0966s; opacity: 0.302305;"></div><div class="particle" style="width: 4.55198px; height: 4.55198px; left: 48.1085vw; animation-delay: 13.6772s; animation-duration: 29.5297s; opacity: 0.3809;"></div><div class="particle" style="width: 4.04379px; height: 4.04379px; left: 3.61434vw; animation-delay: 5.11332s; animation-duration: 16.3987s; opacity: 0.640181;"></div><div class="particle" style="width: 3.07411px; height: 3.07411px; left: 92.1833vw; animation-delay: 14.9515s; animation-duration: 29.3229s; opacity: 0.268769;"></div><div class="particle" style="width: 3.64587px; height: 3.64587px; left: 72.0327vw; animation-delay: 11.5049s; animation-duration: 23.5872s; opacity: 0.249772;"></div><div class="particle" style="width: 3.1676px; height: 3.1676px; left: 13.7844vw; animation-delay: 11.106s; animation-duration: 25.5097s; opacity: 0.226027;"></div><div class="particle" style="width: 4.8986px; height: 4.8986px; left: 38.1143vw; animation-delay: 5.26262s; animation-duration: 26.745s; opacity: 0.449682;"></div><div class="particle" style="width: 4.28313px; height: 4.28313px; left: 99.2821vw; animation-delay: 7.81613s; animation-duration: 25.3582s; opacity: 0.346778;"></div><div class="particle" style="width: 2.70507px; height: 2.70507px; left: 69.107vw; animation-delay: 11.4378s; animation-duration: 17.5869s; opacity: 0.488378;"></div><div class="particle" style="width: 4.57758px; height: 4.57758px; left: 5.79534vw; animation-delay: 0.863492s; animation-duration: 29.3329s; opacity: 0.574476;"></div><div class="particle" style="width: 4.23971px; height: 4.23971px; left: 91.6151vw; animation-delay: 1.42584s; animation-duration: 29.988s; opacity: 0.307404;"></div><div class="particle" style="width: 2.97475px; height: 2.97475px; left: 17.3651vw; animation-delay: 12.0025s; animation-duration: 10.8307s; opacity: 0.564703;"></div><div class="particle" style="width: 4.81877px; height: 4.81877px; left: 52.1435vw; animation-delay: 3.23509s; animation-duration: 11.2796s; opacity: 0.236963;"></div><div class="particle" style="width: 4.0199px; height: 4.0199px; left: 0.573299vw; animation-delay: 12.6031s; animation-duration: 15.9117s; opacity: 0.565826;"></div><div class="particle" style="width: 2.23732px; height: 2.23732px; left: 2.59969vw; animation-delay: 7.68942s; animation-duration: 26.2265s; opacity: 0.544197;"></div><div class="particle" style="width: 4.0498px; height: 4.0498px; left: 28.3815vw; animation-delay: 2.06237s; animation-duration: 17.2956s; opacity: 0.541541;"></div><div class="particle" style="width: 2.52447px; height: 2.52447px; left: 84.4632vw; animation-delay: 6.20246s; animation-duration: 21.2443s; opacity: 0.647151;"></div><div class="particle" style="width: 3.53102px; height: 3.53102px; left: 90.9215vw; animation-delay: 7.40049s; animation-duration: 29.5298s; opacity: 0.552505;"></div><div class="particle" style="width: 1.0124px; height: 1.0124px; left: 9.53836vw; animation-delay: 1.54487s; animation-duration: 22.9425s; opacity: 0.445269;"></div><div class="particle" style="width: 1.42722px; height: 1.42722px; left: 60.536vw; animation-delay: 3.96322s; animation-duration: 18.1579s; opacity: 0.28645;"></div><div class="particle" style="width: 1.20829px; height: 1.20829px; left: 71.8214vw; animation-delay: 9.32028s; animation-duration: 10.8033s; opacity: 0.447195;"></div><div class="particle" style="width: 3.68493px; height: 3.68493px; left: 98.4129vw; animation-delay: 8.67062s; animation-duration: 18.1011s; opacity: 0.450608;"></div><div class="particle" style="width: 2.54711px; height: 2.54711px; left: 5.19974vw; animation-delay: 6.31218s; animation-duration: 19.7387s; opacity: 0.657642;"></div><div class="particle" style="width: 3.12673px; height: 3.12673px; left: 49.8849vw; animation-delay: 0.408214s; animation-duration: 24.703s; opacity: 0.273751;"></div><div class="particle" style="width: 3.2126px; height: 3.2126px; left: 96.3807vw; animation-delay: 14.0189s; animation-duration: 26.8665s; opacity: 0.661136;"></div><div class="particle" style="width: 2.3405px; height: 2.3405px; left: 12.0483vw; animation-delay: 0.719523s; animation-duration: 15.4762s; opacity: 0.227927;"></div><div class="particle" style="width: 4.12609px; height: 4.12609px; left: 35.9047vw; animation-delay: 7.81003s; animation-duration: 25.3849s; opacity: 0.543738;"></div><div class="particle" style="width: 2.54219px; height: 2.54219px; left: 8.37625vw; animation-delay: 10.2939s; animation-duration: 23.4318s; opacity: 0.307395;"></div><div class="particle" style="width: 1.33419px; height: 1.33419px; left: 56.5327vw; animation-delay: 14.7456s; animation-duration: 27.775s; opacity: 0.335709;"></div><div class="particle" style="width: 2.43418px; height: 2.43418px; left: 63.4165vw; animation-delay: 2.51581s; animation-duration: 28.1394s; opacity: 0.264046;"></div><div class="particle" style="width: 4.72928px; height: 4.72928px; left: 43.42vw; animation-delay: 0.932264s; animation-duration: 16.4167s; opacity: 0.611878;"></div><div class="particle" style="width: 3.97473px; height: 3.97473px; left: 72.5011vw; animation-delay: 12.9363s; animation-duration: 28.0631s; opacity: 0.288058;"></div><div class="particle" style="width: 2.98095px; height: 2.98095px; left: 53.5017vw; animation-delay: 8.6374s; animation-duration: 24.2081s; opacity: 0.528426;"></div><div class="particle" style="width: 4.51835px; height: 4.51835px; left: 17.0534vw; animation-delay: 4.65255s; animation-duration: 16.1061s; opacity: 0.332798;"></div><div class="particle" style="width: 2.97273px; height: 2.97273px; left: 85.7079vw; animation-delay: 2.43736s; animation-duration: 23.3561s; opacity: 0.242383;"></div><div class="particle" style="width: 3.13054px; height: 3.13054px; left: 22.1116vw; animation-delay: 0.169245s; animation-duration: 21.961s; opacity: 0.314318;"></div><div class="particle" style="width: 2.82974px; height: 2.82974px; left: 67.9858vw; animation-delay: 10.1097s; animation-duration: 14.1693s; opacity: 0.619788;"></div><div class="particle" style="width: 3.69732px; height: 3.69732px; left: 0.718373vw; animation-delay: 1.82184s; animation-duration: 17.906s; opacity: 0.482729;"></div><div class="particle" style="width: 4.20059px; height: 4.20059px; left: 46.9529vw; animation-delay: 5.94566s; animation-duration: 25.4865s; opacity: 0.614344;"></div><div class="particle" style="width: 3.11379px; height: 3.11379px; left: 52.7258vw; animation-delay: 3.4355s; animation-duration: 16.8008s; opacity: 0.469444;"></div><div class="particle" style="width: 2.22183px; height: 2.22183px; left: 5.59278vw; animation-delay: 14.5285s; animation-duration: 16.95s; opacity: 0.232714;"></div><div class="particle" style="width: 2.50169px; height: 2.50169px; left: 87.2211vw; animation-delay: 13.3019s; animation-duration: 15.7329s; opacity: 0.278945;"></div><div class="particle" style="width: 2.81721px; height: 2.81721px; left: 54.3207vw; animation-delay: 6.14752s; animation-duration: 22.5095s; opacity: 0.669277;"></div><div class="particle" style="width: 1.09604px; height: 1.09604px; left: 39.8748vw; animation-delay: 7.21486s; animation-duration: 15.8183s; opacity: 0.316396;"></div><div class="particle" style="width: 1.44244px; height: 1.44244px; left: 27.6483vw; animation-delay: 9.2089s; animation-duration: 17.7248s; opacity: 0.654692;"></div><div class="particle" style="width: 4.73751px; height: 4.73751px; left: 55.4881vw; animation-delay: 3.0221s; animation-duration: 21.2124s; opacity: 0.472693;"></div><div class="particle" style="width: 1.82911px; height: 1.82911px; left: 24.6526vw; animation-delay: 9.19959s; animation-duration: 19.7478s; opacity: 0.402804;"></div><div class="particle" style="width: 2.46123px; height: 2.46123px; left: 58.5083vw; animation-delay: 2.56816s; animation-duration: 26.5702s; opacity: 0.22923;"></div><div class="particle" style="width: 4.22401px; height: 4.22401px; left: 70.3246vw; animation-delay: 1.40196s; animation-duration: 29.7478s; opacity: 0.581622;"></div><div class="particle" style="width: 2.90137px; height: 2.90137px; left: 46.3033vw; animation-delay: 0.549887s; animation-duration: 20.0193s; opacity: 0.446432;"></div><div class="particle" style="width: 4.66503px; height: 4.66503px; left: 42.4817vw; animation-delay: 14.9633s; animation-duration: 26.7715s; opacity: 0.582995;"></div><div class="particle" style="width: 3.44465px; height: 3.44465px; left: 37.9785vw; animation-delay: 1.12047s; animation-duration: 28.9574s; opacity: 0.380466;"></div><div class="particle" style="width: 3.13958px; height: 3.13958px; left: 66.9387vw; animation-delay: 1.75309s; animation-duration: 25.5118s; opacity: 0.556831;"></div><div class="particle" style="width: 4.48515px; height: 4.48515px; left: 80.0994vw; animation-delay: 10.3766s; animation-duration: 19.7507s; opacity: 0.426143;"></div><div class="particle" style="width: 2.66649px; height: 2.66649px; left: 11.3355vw; animation-delay: 2.40557s; animation-duration: 25.8537s; opacity: 0.445972;"></div><div class="particle" style="width: 4.81172px; height: 4.81172px; left: 53.0231vw; animation-delay: 8.54944s; animation-duration: 21.0445s; opacity: 0.477358;"></div><div class="particle" style="width: 2.8553px; height: 2.8553px; left: 68.9997vw; animation-delay: 7.57498s; animation-duration: 17.5767s; opacity: 0.63322;"></div><div class="particle" style="width: 2.86052px; height: 2.86052px; left: 93.0136vw; animation-delay: 4.54603s; animation-duration: 22.1044s; opacity: 0.503765;"></div><div class="particle" style="width: 1.24905px; height: 1.24905px; left: 88.6395vw; animation-delay: 2.89057s; animation-duration: 12.8869s; opacity: 0.385963;"></div><div class="particle" style="width: 3.8547px; height: 3.8547px; left: 61.335vw; animation-delay: 4.87377s; animation-duration: 21.6891s; opacity: 0.417542;"></div><div class="particle" style="width: 3.88203px; height: 3.88203px; left: 41.843vw; animation-delay: 0.349901s; animation-duration: 29.9251s; opacity: 0.551048;"></div><div class="particle" style="width: 4.97898px; height: 4.97898px; left: 21.1925vw; animation-delay: 0.869912s; animation-duration: 27.3134s; opacity: 0.223746;"></div><div class="particle" style="width: 4.57374px; height: 4.57374px; left: 34.0908vw; animation-delay: 2.04392s; animation-duration: 27.278s; opacity: 0.629876;"></div><div class="particle" style="width: 3.80026px; height: 3.80026px; left: 49.1166vw; animation-delay: 5.24832s; animation-duration: 15.9698s; opacity: 0.659911;"></div><div class="particle" style="width: 1.15152px; height: 1.15152px; left: 74.8129vw; animation-delay: 8.89977s; animation-duration: 21.9814s; opacity: 0.368809;"></div><div class="particle" style="width: 3.79175px; height: 3.79175px; left: 57.5736vw; animation-delay: 14.9838s; animation-duration: 27.1754s; opacity: 0.283505;"></div><div class="particle" style="width: 3.26889px; height: 3.26889px; left: 55.0998vw; animation-delay: 12.6815s; animation-duration: 18.2001s; opacity: 0.54034;"></div><div class="particle" style="width: 3.87457px; height: 3.87457px; left: 50.8065vw; animation-delay: 4.67363s; animation-duration: 18.599s; opacity: 0.570219;"></div><div class="particle" style="width: 1.07996px; height: 1.07996px; left: 15.0108vw; animation-delay: 14.2123s; animation-duration: 29.2698s; opacity: 0.585141;"></div><div class="particle" style="width: 2.05083px; height: 2.05083px; left: 46.3969vw; animation-delay: 8.80978s; animation-duration: 20.5443s; opacity: 0.271584;"></div><div class="particle" style="width: 1.10478px; height: 1.10478px; left: 25.2052vw; animation-delay: 12.0813s; animation-duration: 11.6759s; opacity: 0.486835;"></div><div class="particle" style="width: 3.43288px; height: 3.43288px; left: 67.693vw; animation-delay: 0.951683s; animation-duration: 28.0673s; opacity: 0.69091;"></div><div class="particle" style="width: 4.34789px; height: 4.34789px; left: 3.71238vw; animation-delay: 1.3956s; animation-duration: 16.2827s; opacity: 0.21403;"></div><div class="particle" style="width: 3.46106px; height: 3.46106px; left: 8.22657vw; animation-delay: 10.6474s; animation-duration: 22.5841s; opacity: 0.202253;"></div><div class="particle" style="width: 2.72958px; height: 2.72958px; left: 94.701vw; animation-delay: 3.85002s; animation-duration: 23.8114s; opacity: 0.26439;"></div><div class="particle" style="width: 2.07428px; height: 2.07428px; left: 84.6633vw; animation-delay: 0.595232s; animation-duration: 11.1509s; opacity: 0.660059;"></div><div class="particle" style="width: 4.53744px; height: 4.53744px; left: 48.0836vw; animation-delay: 2.51768s; animation-duration: 23.0089s; opacity: 0.352405;"></div><div class="particle" style="width: 3.53178px; height: 3.53178px; left: 65.2321vw; animation-delay: 0.296538s; animation-duration: 21.9083s; opacity: 0.253077;"></div><div class="particle" style="width: 3.78081px; height: 3.78081px; left: 0.612303vw; animation-delay: 4.67295s; animation-duration: 21.0772s; opacity: 0.317389;"></div><div class="particle" style="width: 2.12126px; height: 2.12126px; left: 16.8066vw; animation-delay: 2.72499s; animation-duration: 27.7568s; opacity: 0.527519;"></div><div class="particle" style="width: 3.46594px; height: 3.46594px; left: 54.5709vw; animation-delay: 4.90873s; animation-duration: 20.8925s; opacity: 0.685573;"></div><div class="particle" style="width: 3.77936px; height: 3.77936px; left: 75.7657vw; animation-delay: 11.2257s; animation-duration: 24.0802s; opacity: 0.648368;"></div><div class="particle" style="width: 1.86515px; height: 1.86515px; left: 55.7015vw; animation-delay: 7.8414s; animation-duration: 20.53s; opacity: 0.635691;"></div><div class="particle" style="width: 4.31764px; height: 4.31764px; left: 14.7114vw; animation-delay: 8.247s; animation-duration: 11.6091s; opacity: 0.688074;"></div><div class="particle" style="width: 3.17373px; height: 3.17373px; left: 89.0896vw; animation-delay: 0.322653s; animation-duration: 24.4858s; opacity: 0.34932;"></div><div class="particle" style="width: 2.63668px; height: 2.63668px; left: 71.0688vw; animation-delay: 9.26589s; animation-duration: 11.5966s; opacity: 0.688363;"></div><div class="particle" style="width: 1.013px; height: 1.013px; left: 67.5151vw; animation-delay: 14.679s; animation-duration: 14.2905s; opacity: 0.287631;"></div><div class="particle" style="width: 3.11007px; height: 3.11007px; left: 3.17249vw; animation-delay: 8.53451s; animation-duration: 22.4682s; opacity: 0.424981;"></div><div class="particle" style="width: 3.57336px; height: 3.57336px; left: 77.099vw; animation-delay: 11.3233s; animation-duration: 29.5081s; opacity: 0.568445;"></div><div class="particle" style="width: 2.04001px; height: 2.04001px; left: 94.0694vw; animation-delay: 9.92587s; animation-duration: 17.8067s; opacity: 0.548242;"></div><div class="particle" style="width: 1.69495px; height: 1.69495px; left: 83.0231vw; animation-delay: 5.5106s; animation-duration: 28.654s; opacity: 0.479417;"></div><div class="particle" style="width: 3.92016px; height: 3.92016px; left: 61.1322vw; animation-delay: 9.32897s; animation-duration: 27.1635s; opacity: 0.329494;"></div><div class="particle" style="width: 2.43126px; height: 2.43126px; left: 46.7012vw; animation-delay: 14.3432s; animation-duration: 21.1796s; opacity: 0.532827;"></div><div class="particle" style="width: 2.59195px; height: 2.59195px; left: 1.43801vw; animation-delay: 7.15537s; animation-duration: 14.142s; opacity: 0.427331;"></div><div class="particle" style="width: 3.03671px; height: 3.03671px; left: 21.7522vw; animation-delay: 5.74919s; animation-duration: 13.4415s; opacity: 0.325049;"></div><div class="particle" style="width: 4.52663px; height: 4.52663px; left: 19.5428vw; animation-delay: 10.1534s; animation-duration: 26.9725s; opacity: 0.309672;"></div><div class="particle" style="width: 2.09169px; height: 2.09169px; left: 6.10291vw; animation-delay: 6.33072s; animation-duration: 13.9073s; opacity: 0.537713;"></div><div class="particle" style="width: 3.59249px; height: 3.59249px; left: 61.58vw; animation-delay: 4.25547s; animation-duration: 12.723s; opacity: 0.684004;"></div></div>
+    
+    <button class="scroll-btn up" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <button class="scroll-btn" onclick="scrollToBottom()">
+        <i class="fas fa-arrow-down"></i>
+    </button>
+    
+    <main class="container mx-auto px-4 py-10">
+        <div class="text-center py-16 fade-in" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="floating mb-8">
+                <div class="text-6xl md:text-8xl font-bold gradient-text">
+                    MY.HOST
+                </div>
+            </div>
+            
+            <div class="text-xl md:text-2xl text-gray-300 mb-6 fade-in delay-200 max-w-3xl mx-auto" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                <span class="font-bold text-purple-300">By Developer Yamori_Ko</span> — 
+                Премиум хостинг игровых серверов с максимальной производительностью
+            </div>
+            
+            <div class="mt-10 fade-in delay-300" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                <button class="btn-primary mr-4">
+                    <i class="fas fa-play-circle mr-2"></i> Начать сейчас
+                </button>
+                <button class="glass-card py-3 px-6 rounded-full font-medium hover:bg-white/10 transition">
+                    <i class="fas fa-info-circle mr-2"></i> Узнать больше
+                </button>
+            </div>
+        </div>
+        
+        <div class="mt-20 mb-16">
+            <h2 class="section-title fade-in" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">Почему выбирают нас?</h2>
+            <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12 fade-in delay-100" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                Мы предоставляем лучшие решения для хостинга игровых серверов с фокусом на производительности и надежности.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                <div class="feature-card glass-card fade-in delay-200" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="icon-container mx-auto">
+                        <i class="fas fa-bolt text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Максимальная производительность</h3>
+                    <p class="text-gray-300 text-center">
+                        Современное оборудование и оптимизированная инфраструктура обеспечивают бесперебойную работу вашего сервера 24/7.
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card fade-in delay-300" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="icon-container mx-auto">
+                        <i class="fas fa-shield-alt text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Защита от DDoS</h3>
+                    <p class="text-gray-300 text-center">
+                        Многоуровневая система защиты гарантирует безопасность вашего сервера от любых атак и нежелательных вторжений.
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card fade-in delay-400" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="icon-container mx-auto">
+                        <i class="fas fa-headset text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Круглосуточная поддержка</h3>
+                    <p class="text-gray-300 text-center">
+                        Наша команда поддержки всегда готова помочь вам с любыми вопросами в любое время суток.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-20 mb-16">
+            <h2 class="section-title fade-in" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">Наши преимущества</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
+                <div class="glass-card p-8 fade-in delay-200" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="flex items-start mb-6">
+                        <div class="icon-container mr-5">
+                            <i class="fas fa-server text-xl text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Мощные серверы</h3>
+                            <p class="text-gray-300">
+                                Мы используем только современное оборудование от ведущих производителей для обеспечения стабильной работы.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 fade-in delay-300" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="flex items-start mb-6">
+                        <div class="icon-container mr-5">
+                            <i class="fas fa-rocket text-xl text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Быстрое развертывание</h3>
+                            <p class="text-gray-300">
+                                Ваш сервер будет готов к работе уже через несколько минут после оформления заказа.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 fade-in delay-400" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="flex items-start mb-6">
+                        <div class="icon-container mr-5">
+                            <i class="fas fa-chart-line text-xl text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Детальная статистика</h3>
+                            <p class="text-gray-300">
+                                Полный контроль над вашим сервером через удобную панель управления с подробной статистикой.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 fade-in delay-500" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                    <div class="flex items-start mb-6">
+                        <div class="icon-container mr-5">
+                            <i class="fas fa-dollar-sign text-xl text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Гибкая тарификация</h3>
+                            <p class="text-gray-300">
+                                Вы платите только за те ресурсы, которые используете. Масштабируйте сервер в любой момент.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-20 text-center fade-in" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="glass-card p-10 max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6">Готовы начать?</h2>
+                <p class="text-gray-300 mb-8 text-lg">
+                    Присоединяйтесь к тысячам довольных клиентов, которые уже выбрали MY.HOST для своих игровых проектов.
+                </p>
+                <button class="btn-primary px-10 py-4 text-lg">
+                    <i class="fas fa-gamepad mr-3"></i> Заказать сервер
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="mt-20 py-10">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="text-2xl font-bold gradient-text mb-4">MY.HOST</div>
+                <p class="text-gray-400 mb-6">© 2026 Все права защищены. Разработано Yamori</p>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                
+                <div class="text-gray-500 text-sm">
+                    <p>Все названия продуктов, компании и бренды являются собственностью их владельцев.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-  Разработано Yamori_Ko, релиз не для продажи, а исключительно для вашего хостинга, готовый шаблон бесплатный и общедоступный, если понравилось подпишись на мой гет хаб, можете изменять ваш код как вам угодно! ->
+    <script>
+        // Создание частиц для фона
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Случайный размер
+                const size = Math.random() * 4 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Случайная позиция
+                particle.style.left = `${Math.random() * 100}vw`;
+                
+                // Случайная задержка анимации
+                const delay = Math.random() * 15;
+                particle.style.animationDelay = `${delay}s`;
+                
+                // Случайная продолжительность анимации
+                const duration = Math.random() * 20 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Случайная прозрачность
+                const opacity = Math.random() * 0.5 + 0.2;
+                particle.style.opacity = opacity;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Прокрутка вверх
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Прокрутка вниз
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Анимация появления элементов при прокрутке
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Инициализация анимации появления
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Запуск анимации при загрузке
+            setTimeout(() => {
+                animateOnScroll();
+            }, 100);
+            
+            // Обработчик прокрутки
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+
+</body></html>
